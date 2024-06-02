@@ -1,0 +1,122 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List page</title>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include Kendo UI styles -->
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default-v2.min.css" rel="stylesheet" />
+    <!-- Include Kendo UI scripts -->
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+    <script src="~/js/cost.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+@* 
+ <body>
+    <div id="grid"></div>
+    <div id="base" data-base="@ViewBag.hostname"></div>
+     <div id="modeid" data-base="@ViewBag.Mode"></div> 
+</body>  *@
+</html>
+
+
+
+<!-- Dialog Box -->
+
+<div class="dialog-box" id="dialog-box" style="display:none;" >
+    <div class="icon-btn" id="edit-icon">
+        <input type="hidden" id="hiddenfield" />
+        <i id="IdValue" class="material-icons">edit</i>Edit
+    </div>
+    <div class="icon-btn" id="view-icon">
+        <i id="btnGrid" class='material-icons'>grid_on</i><b></b>View
+    </div>
+    <div class="icon-btn" id="delete-icon">
+        <i class="material-icons">delete</i>Delete
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    
+
+<div class="form-container" id="addWindow" style="display:none;" >   
+    <div id="errorContainer" class="error-container">
+        <p id="errorMessage"></p>
+         <span id="costErrorIcons" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
+        <span id="costnameError" class="invalid-feedback"></span>
+    </div>  
+    <div> </div>
+    <div class="form-wrapper">
+        <div class="banner">
+            <h1>CostHeadForm</h1>
+        </div>
+
+        <div class="item">
+            <label for="costheadname">CostHeadName <span class="required">*</span></label>
+            <input type="text" id="costheadname" name="name" placeholder="Enter name" />           
+            <span id="costicon" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
+        </div>
+
+        <div class="item">
+            <label for="remarks">Remarks</label>
+            <input type="text" id="remarks" name="remarks" placeholder="Enter remarks" />
+            <span id="remarkError" class="invalid-feedback"></span>
+        </div>
+
+        <div class="item">
+            <label for="isactive" class="checkbox"><span>IsActive</span></label>
+            <input type="checkbox" id="isactive" name="IsActive" />
+        </div>
+
+        <div class="btn-block">
+            <button type="submit" id="submit">Save</button>
+      
+        </div> 
+        <br />
+
+         <div class="btn-block"> 
+            <button type="button" id="close">close</button>
+        </div>
+
+    </div>
+</div>
+
+    <div id="grid"></div>
+    <div id="base" data-base="@ViewBag.hostname"></div>
+    <div id="modeid" data-base="@ViewBag.Mode"></div>
+
+</body>
+
+@* <div id="grid"></div>
+<script id="menuTemplate" type="text/x-kendo-template">
+    <div id="menu-box" style="display: none;">
+        <ul>
+            <li><a href="#" class="edit-link"><span class="material-symbols-outlined">edit</span><b>Edit</b></a></li>
+            <li><a href="#" class="delete-link"><span class="material-symbols-outlined">delete</span><b>Delete</b></a></li>
+            <li><a href="#" class="view-link"><span class="material-symbols-outlined">grid_on</span><b>View</b></a></li>
+        </ul>
+    </div>
+</script>
+ *@
+

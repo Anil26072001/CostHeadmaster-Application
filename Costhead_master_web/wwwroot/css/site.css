@@ -1,0 +1,391 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+body {
+    background-color:aliceblue; 
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.login-container {
+    width: 400px;
+    margin: 200px auto;
+    /*height:300px;*/
+    padding: 20px;
+    background-color:aquamarine;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+
+#login {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+#Register {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+    #login-btn:hover {
+        background-color: #0056b3;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.form-wrapper {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+    .form-wrapper .banner {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .form-wrapper .banner h1 {
+            margin: 0;
+            color: #333;
+        }
+
+    .form-wrapper .item {
+        margin-bottom: 15px;
+    }
+
+        .form-wrapper .item label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-wrapper .item input[type="text"],
+        .form-wrapper .item input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-wrapper .item input[type="checkbox"] {
+            width: auto;
+        }
+
+        .form-wrapper .item .required {
+            color: red;
+        }
+
+        .form-wrapper .item .invalid-feedback {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+    .form-wrapper .btn-block {
+        text-align: center;
+    }
+
+        .form-wrapper .btn-block button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            color: #fff;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+            .form-wrapper .btn-block button:hover {
+                background-color: #218838;
+            }
+
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-block {
+    margin-left: 50px; /* Adjust spacing between buttons if needed */
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px; /* Adjust spacing between buttons if needed */
+    justify-content: flex-end;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.error-container {
+    color: red;
+    /*margin-bottom: 20px;
+    display: none;  */
+  /*  left :-167px;*/
+}
+
+
+.Iconcolor {
+    position: absolute;
+    bottom: -4px;
+    /* left: -140px;
+    color: red;*/
+    height: 0px;
+}
+
+#costErrorIcons {
+    display: none;
+    left: -31px;
+    bottom: 21px;
+}
+
+.error-container {
+    position: absolute;
+    /*bottom: 460px;*/
+   bottom:430px;
+    left: 120px;
+}
+
+.costnameError {
+    position: absolute;
+    height: 59px;
+    /*left:-82px;*/
+}
+
+#costicon {
+    color: red;
+    position: absolute;
+    bottom:297px;
+    /*height: 340px;*/
+    display: none;
+}
+.Iconcolor {
+    color: red;
+    /*height: 340px;*/
+}
+
+
+
+
+
+.custom-title-bar .k-window-titlebar {
+    background-color: #30619f; /* Change to your desired color */
+    color: aqua /* Change the text color if needed */
+}
+
+    .custom-title-bar .k-window-titlebar .k-window-title {
+        color: white; /* Change the title text color */
+    }
+
+    .custom-title-bar .k-window-titlebar .k-window-actions .k-icon {
+        color: white; /* Change the color of the action icons */
+    }
+
+
+
+
+
+
+
+.btn-block {
+    text-align: right; /* Align buttons to the right */
+    margin-top: 10px; /* Add some space at the top */
+}
+
+    .btn-block button {
+        text-align:right;
+
+        margin: 0 5px; /* Add some space between buttons */
+        /*padding: 10px 20px;*/ /* Optional: Increase padding for better appearance */
+    }
+
+
+        .btn-block button:hover {
+            background-color: darkblue; /* Change background color on hover */
+        }
+
+#close {
+    position: absolute;
+    right: 120px;
+    top: 370px;
+   /* color:blue;*/
+}
+
+#submit {
+    position: absolute;
+    bottom:88px;
+    /*color:blue;*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+dialog box css*/
+#dialog-box {
+    position: absolute;
+    display: none;
+    width: 140px; 
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+    .icon-btn i {
+        margin-right: 8px;
+    }
+
+    .icon-btn:hover {
+        background-color: #f0f0f0;
+    }
+
+.material-symbols-outlined {
+    cursor: pointer;
+    font-size: 24px; /* Adjust size as needed */
+    margin: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
