@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List page</title>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include Kendo UI styles -->
+    <link href="https://kendo.cdn.telerik.com/2022.1.119/styles/kendo.default-v2.min.css" rel="stylesheet" />
+    <!-- Include Kendo UI scripts -->
+    <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
+    <script src="~/js/cost.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" /> 
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
+</head>
+
+
+</html>
+
+
+
+<!-- Dialog Box -->
+
+<div class="dialog-box" id="dialog-box" style="display:none;" >
+    <div class="icon-btn" id="edit-icon">
+        <input type="hidden" id="hiddenfield" />
+        <i id="IdValue" class="material-icons">edit</i>Edit
+    </div>
+    <div class="icon-btn" id="view-icon">
+        <i id="btnGrid" class='material-icons'>grid_on</i><b></b>View
+    </div>
+    <div class="icon-btn" id="delete-icon">
+        <i class="material-icons">delete</i>Delete
+    </div>
+</div>
+
+
+
+
+
+
+<body>
+
+    <div class="toolbar">
+        <div class="nameToolbar">
+            <h2>CostHead</h2>
+        </div>
+
+        <div class="icons-grid-toolbar">
+
+            <i id="addButton" class='material-icons'>add</i>
+             <i id="editIcon" class='material-icons'>edit</i>
+            <i id="gridIcon" class='material-icons'>grid_on</i>
+            <i id="deleteIcon" class='material-icons'>delete</i>
+            <i id="btnRefresh" class='material-icons'>refresh</i> 
+
+             <div id="ExportPdfExcel">
+                <h4 id="export">EXPORT</h4>
+                <i id="btnDropdown" class='material-icons dropdown-icon'>arrow_drop_down</i>
+                <div id="dropdownMenu" class="dropdown-content">
+                    <a href="#" id="exportToExcel">Export to Excel All</a>
+                    <a href="#" id="exportToExcelSelected">Export to Excel Selected</a>
+                </div>
+            </div> 
+
+             <div class="toolbar-searchtxt">
+                <input type="text" id="txtSearch" class="form-control" placeholder="CostHeadName" />
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="ErrorMessage">
+            <div>
+                <h3 id="Errorheading">Error!!!!</h3>
+                <p id="MessageText">Plese Select 0ne CostHead Only To Edit</p>
+                <button class="close-button btn-close">&times;</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Custom modal for delete confirmation -->
+    <div id="customModal">
+        @* <h4>Are you sure you want to delete?</h4>
+        <button id="btnConformDelete" class="delete"> Yes Delete</button>  
+        <button id="btnConfirmCancel" class="cancel">Cancel</button> *@
+    </div>
+
+
+
+    <div class="form-container" id="addWindow" style="display:none;">
+        <div class="form-wrapper">
+
+            <div id="errorContainer" class="error-container" style="display:none;">
+                <p id="errorMessage"></p>
+                <span>
+                    <span id="costErrorIcons" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
+                    <span id="costnameError" class="text-danger error-message"></span>
+                </span>
+           
+            </div>
+
+            <div class="item">
+                <label for="costheadname">Cost Head Name <span class="required">*</span></label>
+                <input type="text" id="costheadname" name="name" placeholder="Enter name" />
+                <span id="costicon" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
+            </div>
+            <div class="item">
+                <label for="remarks">Remark</label>
+                <textarea id="remarks" name="remarks" rows="10" cols="20"></textarea>
+                <span id="remarkError" class="invalid-feedback"></span>
+            </div>
+            <div class="item checkbox">
+                <label id="check" for="isactive"> <span> Active</span> </label>
+                <input type="checkbox" id="isactive" name="IsActive" checked />
+            </div>
+
+            <div class="btn-block">
+            <div>
+                    <button id="submit" class="addcustom-button">Save</button>
+                    <button id="close" class="custom-button1">Cancel</button>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="grid"></div>
+    <div id="base" data-base="@ViewBag.hostname"></div>
+    <div id="modeid" data-base="@ViewBag.Mode"></div>
+    <input type="hidden" id="hiddencostId" value="" />
+   
+</body>
