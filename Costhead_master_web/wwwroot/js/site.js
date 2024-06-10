@@ -94,6 +94,11 @@
 
 
 
+
+
+
+
+
 $(document).ready(function () {
     var isvalid = true;
 
@@ -197,6 +202,8 @@ $(document).ready(function () {
         if (password_val === '') {
             $(idreferences.errordata1).text('Please Enter password').show();
             $(idreferences.passwordicon).html('<i class="fas fa-exclamation-circle"></i>').show();
+            $(idreferences.errordata).text('Please Enter Email').show();
+            $(idreferences.emailicon).html('<i class="fas fa-exclamation-circle"></i>').show();
             isvalid = false;
         //} else {
         //    $(idreferences.errordata1).hide();
@@ -217,14 +224,17 @@ $(document).ready(function () {
 
             //    /* url: baseid +"api/CoostController/Login"*/
             //    url: 'https://localhost:7125/api/CoostController/Login',
-
+        
             //     type: 'Post',
             //    data: (login),
 
             //    success: function (result) {
             //        alert("Login successfully");
             //        window.location.href = '/CostHeadController1/ListPage';
-
+               
+                success: function (result) {
+                    alert("Successfully submitted");
+                    window.location.href = '/CostHeadController1/ListPage';
 
             //    }
             //});
@@ -243,7 +253,7 @@ $(document).ready(function () {
                         alert("Invalid email or password.");
                     } else {
                         alert("An error occurred: " + xhr.responseText);
-                    }
+                }
                 }
             });
 
@@ -251,6 +261,16 @@ $(document).ready(function () {
             //alert("Login successfully")
             //$("#LoginPage")[0].submit();
         }
+
+
+
+
+
+
+
+
+
+
 
 
 

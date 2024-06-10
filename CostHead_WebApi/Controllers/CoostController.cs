@@ -55,7 +55,7 @@ namespace CostHead_WebApi.Controllers
             {
                 bool myuser = await _login.AuthenticatedUser(Email, password);
 
-
+              
                 if (myuser)
                 {
                     return Ok();
@@ -66,6 +66,7 @@ namespace CostHead_WebApi.Controllers
                 }
 
                 
+                    return Ok();
                 
             }
             catch (Exception ex)

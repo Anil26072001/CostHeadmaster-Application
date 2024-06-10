@@ -288,7 +288,22 @@ body {
 
 
 
+.btn-block {
+    text-align: right; /* Align buttons to the right */
+    margin-top: 10px; /* Add some space at the top */
+}
 
+    .btn-block button {
+        text-align:right;
+
+        margin: 0 5px; /* Add some space between buttons */
+        /*padding: 10px 20px;*/ /* Optional: Increase padding for better appearance */
+    }
+
+
+        .btn-block button:hover {
+            background-color: darkblue; /* Change background color on hover */
+        }
 
 #close {
     position: absolute;
@@ -296,7 +311,7 @@ body {
     top: 370px;
     left:124px;
 
-    /* color:blue;*/
+   /* color:blue;*/
 }
 
 #submit {

@@ -27,7 +27,12 @@ namespace Costhead_master_web.Controllers
             return View();
 
         }
-        
+        //public IActionResult ListPage(string mode="Listpage")
+        //{
+        //    ViewBag.Mode = mode; 
+
+        //    return View();
+        //}
         public IActionResult ListPage()
         {
             var baseurl = _configuration["Appsettings:BaseUrl"];

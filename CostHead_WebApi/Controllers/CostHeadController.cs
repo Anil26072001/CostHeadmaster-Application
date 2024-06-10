@@ -81,18 +81,18 @@ namespace CostHead_WebApi.Controllers
 
             if (_cost == null)
             {
-               NotFound();
+                NotFound();
             }
-                Cost obj = new Cost();
+            Cost obj = new Cost();
 
-                obj.CostHeadName = cosy.CostHeadName;
-                obj.Remarks = cosy.Remarks;
-                obj.IsActive = cosy.IsActive;
+            obj.CostHeadName = cosy.CostHeadName;
+            obj.Remarks = cosy.Remarks;
+            obj.IsActive = cosy.IsActive;
 
 
-                var results = await _cost.AddCost(obj);
+            var results = await _cost.AddCost(obj);
 
-                return Ok();
+            return Ok();
             }
             catch (Exception)
             {
@@ -108,13 +108,13 @@ namespace CostHead_WebApi.Controllers
         
         {
             try
-            {
-                int delete = await _cost.Delete(id);
+        {
+            int delete = await _cost.Delete(id);
                 if (delete == 0)
-                {
-                    NotFound();
-                }
-                return 1;
+            {
+                NotFound();
+            }
+            return 1;          
             }
             catch (Exception)
             {

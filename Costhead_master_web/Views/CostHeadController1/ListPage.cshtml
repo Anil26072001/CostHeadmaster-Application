@@ -13,7 +13,7 @@
     <!-- Include Kendo UI scripts -->
     <script src="https://kendo.cdn.telerik.com/2022.1.119/js/kendo.all.min.js"></script>
     <script src="~/js/cost.js"></script>
-    <link href="~/css/site.css" rel="stylesheet" /> 
+    <link href="~/css/site.css" rel="stylesheet" />
     <!-- SweetAlert2 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
@@ -99,47 +99,71 @@
     </div>
 
 
-
+<body>
+    
     <div class="form-container" id="addWindow" style="display:none;">
         <div class="form-wrapper">
 
             <div id="errorContainer" class="error-container" style="display:none;">
-                <p id="errorMessage"></p>
+        <p id="errorMessage"></p>
                 <span>
-                    <span id="costErrorIcons" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
+         <span id="costErrorIcons" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
                     <span id="costnameError" class="text-danger error-message"></span>
                 </span>
            
-            </div>
+    </div>  
+    <div> </div>
+    <div class="form-wrapper">
+        <div class="banner">
+            <h1>CostHeadForm</h1>
+        </div>
 
-            <div class="item">
+        <div class="item">
                 <label for="costheadname">Cost Head Name <span class="required">*</span></label>
-                <input type="text" id="costheadname" name="name" placeholder="Enter name" />
-                <span id="costicon" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
-            </div>
-            <div class="item">
+            <input type="text" id="costheadname" name="name" placeholder="Enter name" />           
+            <span id="costicon" class="material-icons material-icons-outlined Iconcolor">error_outline</span>
+        </div>
+
+        <div class="item">
                 <label for="remarks">Remark</label>
                 <textarea id="remarks" name="remarks" rows="10" cols="20"></textarea>
-                <span id="remarkError" class="invalid-feedback"></span>
-            </div>
+            <span id="remarkError" class="invalid-feedback"></span>
+        </div>
             <div class="item checkbox">
                 <label id="check" for="isactive"> <span> Active</span> </label>
                 <input type="checkbox" id="isactive" name="IsActive" checked />
-            </div>
+        </div>
 
-            <div class="btn-block">
+        <div class="btn-block">
             <div>
                     <button id="submit" class="addcustom-button">Save</button>
                     <button id="close" class="custom-button1">Cancel</button>
-            </div>
-            </div>
+        </div> 
+        <br />
 
+         <div class="btn-block"> 
+            <button type="button" id="close">close</button>
         </div>
+
     </div>
+</div>
 
     <div id="grid"></div>
     <div id="base" data-base="@ViewBag.hostname"></div>
     <div id="modeid" data-base="@ViewBag.Mode"></div>
     <input type="hidden" id="hiddencostId" value="" />
-   
+
 </body>
+
+@* <div id="grid"></div>
+<script id="menuTemplate" type="text/x-kendo-template">
+    <div id="menu-box" style="display: none;">
+        <ul>
+            <li><a href="#" class="edit-link"><span class="material-symbols-outlined">edit</span><b>Edit</b></a></li>
+            <li><a href="#" class="delete-link"><span class="material-symbols-outlined">delete</span><b>Delete</b></a></li>
+            <li><a href="#" class="view-link"><span class="material-symbols-outlined">grid_on</span><b>View</b></a></li>
+        </ul>
+    </div>
+</script>
+ *@
+

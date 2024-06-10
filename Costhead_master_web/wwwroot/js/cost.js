@@ -25,11 +25,139 @@ var GlobleVariable = {
     Submit: "#submit",
     Close:"#close"
 
+//$(document).ready(function () {
+//    var baseid = $("#base").data('base');
 
 };
 
+//    function KendbindData(listapidata) {
+//        var dataSource = new kendo.data.DataSource({
+//            data: listapidata,
+//            pageSize: 10
+//        });
+
+//        $("#grid").kendoGrid({
+//            dataSource: dataSource,
+//            height: 500,
+//            scrollable: true,
+//            pageable: {
+//                buttonCount: 5,
+//                numeric: true,
+//                refresh: false
+//            },
+//            filterable: true,
 
 
+//            toolbar: ["excel", "pdf", "search"],
+
+//            //toolbar: [
+//            //    {
+//            //        name: "costom",
+//            //        tamplate:"<>"
+
+
+//            //    }
+//            //]
+
+//            toolbar: [
+//                {
+//                    template: "<a href='\\#' class='k-button k-button-icontext' id='addButton'><span class='k-icon k-i-plus'></span></a>"
+//                    //template: "<span class='k-icon k-i-plus'></span> Excel",
+
+//                    //name: "excel"
+//                },
+
+//                "excel",
+//                "pdf",
+//                "search"
+//            ],
+
+
+
+
+
+
+//            pdfExport: function (e) {
+//                const width = e.sender.wrapper.width();
+//                e.sender.wrapperClone.width(width);
+//                e.sender.wrapperClone.addClass('k-clone');
+//            },
+//            excel: {
+//                fileName: "Kendo UI Grid Export.xlsx"
+//            },
+//            columns: [
+//                {
+//                    selectable: true,
+//                    width: 80,
+//                    attributes: {
+//                        "class": "checkbox-align"
+//                    },
+//                    headerAttributes: {
+//                        "class": "checkbox-align"
+//                    }
+//                },
+//                {
+//                    field: "costId",
+//                    title: "Cost ID",
+//                    width: 100
+//                },
+//                {
+//                    field: "costHeadName",
+//                    title: "Cost Name",
+//                    width: 100
+//                },
+//                {
+//                    field: "remarks",
+//                    title: "Remarks",
+//                    width: 100
+//                },
+//                {
+//                    field: "isActive",
+//                    title: "IsActive",
+//                    width: 100
+//                }
+
+
+//            ],
+
+
+//            dataBound: function () {
+//                $("#addButton").on("click", function () {
+
+//                    var modal = $("<div id='addModal' class='modal'><div class='modal-content'><h4>Add New Item</h4></div><div class='modal-footer'><a href='#!' class='modal-close waves-effect waves-green btn-flat'>Close</a><a href='#!' class='waves-effect waves-green btn-flat'>Save</a></div></div>");
+
+//                    $("body").append(modal);
+//                    modal.modal();
+//                    modal.modal('open');
+//                });
+//            },
+
+
+
+
+//        });
+//    }
+//});
+
+
+
+
+
+
+
+
+
+
+
+
+var GlobleVariable = {
+    CostHeadName: "costheadname",
+    costnameError: "costnameError", 
+    CostErrorIcons: "#costErrorIcons",
+    Remark: "#remark",
+    IsActive: "#active"
+
+};
 
 
 
@@ -38,18 +166,18 @@ $(document).ready(function () {
 
     var CheckExpression = true;
     var NumberOfChecked = 0;
-
+ 
     $("#txtSearch").on('input', function () {
         var value = $("#txtSearch").val().toLowerCase();
         $("#grid tr").filter(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
         });
     });
-   
+
 
     var jq = $.noConflict();
     var mode = $(GlobleVariable.Modeid).val();
-
+    
     /*var baseid = $("#base").data('base');*/
     var baseid=$('#base').attr('data-base');
     $(GlobleVariable.CostHeadName).on('input', function () {
@@ -78,8 +206,9 @@ $(document).ready(function () {
 
 
 
-     ListAjaxcall();
-    function ListAjaxcall() {
+   /* if (mode == "Listpage") {*/
+        ListAjaxcall();
+        function ListAjaxcall() {
         var baseid = $('#base').attr('data-base');
             $.ajax({
                
@@ -142,8 +271,20 @@ $(document).ready(function () {
              
             //],
 
-           
-            
+
+                
+                "excel",
+                "pdf",
+                "search"
+            ],
+            pdfExport: function (e) {
+                const width = e.sender.wrapper.width();
+                e.sender.wrapperClone.width(width);
+                e.sender.wrapperClone.addClass('k-clone');
+            },
+            excel: {
+                fileName: "Kendo UI Grid Export.xlsx"
+            },
             columns: [
                 {
                     selectable: true,
@@ -176,7 +317,7 @@ $(document).ready(function () {
                     title: "Action",
                     template: "<span id='curddropdown' data-id='#:costId#' class='material-icons  material-symbols-outlined'>more_vert</span>"
                 }
-
+                
             ]
 
         });
@@ -238,13 +379,13 @@ $(document).ready(function () {
            
         });
 
-
+       
         $(document).on('click', function () {
             $(GlobleVariable.Dialogbox).hide();
         });
 
         $(GlobleVariable.Dialogbox).on('click', function (event) {
-
+            
             event.stopPropagation();
         });
 
@@ -702,15 +843,15 @@ $(document).ready(function () {
                 ToolBarIconDelete(costid);
                 $("#btnConformDelete").on("click", function () {
                     ToolBarIconDelete(costid);
-                });
+        });
                 $("#btnConfirmCancel").on("click", function () {
                     $("#customModal").hide();
                 });
             }
-
+   
       });
 
-
+        
      $(GlobleVariable.Deleteicon).on("click", function (e) {
             e.preventDefault();
 
@@ -721,7 +862,7 @@ $(document).ready(function () {
             //confirmDelete(costid);
      });
 
-        
+
 
 
 
@@ -763,13 +904,14 @@ $(document).ready(function () {
             width: 1000,
             height: 460
            /* height:300*/
-
             
+
         }).data("kendoWindow");
         $(GlobleVariable.AddWindow).parent().addClass("custom-title-bar");
 
 
 
+        //});
 
         // Add click event for the addButton
         $(GlobleVariable.AddButton).on("click", function () {
@@ -777,11 +919,11 @@ $(document).ready(function () {
             $(GlobleVariable.CostHeadName).val("").prop("disabled", false);
             $(GlobleVariable.Remark).val("").prop("disabled", false);
             $(GlobleVariable.IsActive).prop("checked", true).prop("disabled", false);
-           
+
             $(".edit-properties").hide();
             $(GlobleVariable.ErrorContainer).hide();
             $(GlobleVariable.CostIcon).hide();
-
+       
             window.setOptions({ title: "Cost Head:Add" });
             $("#formTitle").text("Add New Item");
             $(GlobleVariable.Submit).text("Save");
@@ -805,7 +947,15 @@ $(document).ready(function () {
 
         //    $.ajax({
         //        url: 'https://localhost:7125/api/CostHeadController/UpdateCost/' + costid,
-
+       
+        //var window = $("#addWindow").kendoWindow({
+        //    title: "Add New Item",
+        //    visible: false,
+        //    modal: true,
+        //    resizable: false,
+        //    width: 600,
+        //    height: 600
+        //}).data("kendoWindow");
 
         //        type: "PATCH",
         //        contentType: "application/json; charset=utf-8",
@@ -816,8 +966,15 @@ $(document).ready(function () {
         //            console.log("Data saved successfully:", response);
         //            window.close();
         //            ListAjaxcall();
+           
+        //    window.center();
+        //    var wrapper = window.wrapper;
+        //    var topPosition = wrapper.offset().top - 20; 
+        //    wrapper.css({ top: topPosition });
 
-
+        //    // Open the window as a popup
+        //    window.open();
+        //});
 
         //        },
         //        error: function (xhr, status, error) {
@@ -827,12 +984,13 @@ $(document).ready(function () {
         //        }
         //    });
         //}
-        
+
 
 
         $(GlobleVariable.Close).click(function () {
             window.close(); // Close the page
         });
+        $("#submit").on("click", function (e) {
 
 
         $(GlobleVariable.Submit).on("click", function (e) {
@@ -840,8 +998,11 @@ $(document).ready(function () {
             /*e.preventDefault();*/
             var buttonValue = $(this).text();
             if (buttonValue == 'Save') {
+           
 
-
+            var CostHeadName = $("#costheadname").val();
+            var Remarks = $("#remarks").val();
+            var IsActive = $("#isactive").prop("checked");
 
                 console.log("Button Value:", buttonValue);
 
@@ -850,49 +1011,53 @@ $(document).ready(function () {
                 var Remarks = $(GlobleVariable.Remark).val();
                 var IsActive = $(GlobleVariable.IsActive).prop("checked");
 
-                var cost = {
+            var cost = {
                     CostHeadName: $(GlobleVariable.CostHeadName).val(),
                     Remarks: $(GlobleVariable.Remark).val(),
-                    IsActive: IsActive
-                    
+                IsActive: IsActive 
+                //IsActive: $("isactive").prop("checked"),
+       
 
-                };
-                var IsValid = true;
+            };
+            var IsValid = true;
 
 
-                if (cost.CostHeadName == '') {
+           
+
+            if (cost.CostHeadName == '') {
                     $(GlobleVariable.CostnameError).text('Please Enter CostHeadName').show();
                     $(GlobleVariable.CostErrorIcons).show();
                     $(GlobleVariable.CostIcon).show();
                     $(GlobleVariable.ErrorContainer).show();
-                    IsValid = false;
-                }
-                else {
-                    var nameRegex = /^[a-zA-Z]{1}[a-zA-Z\s]+$/;
-                    if (!nameRegex.test(cost.CostHeadName)) {
+                IsValid = false;
+            }
+            else {
+                var nameRegex = /^[a-zA-Z]{1}[a-zA-Z\s]+$/;
+                if (!nameRegex.test(cost.CostHeadName)) {
                         $(GlobleVariable.CostnameError).text('Invalid CostHeadName').show();
                         $(GlobleVariable.CostErrorIcons).show();
                         $(GlobleVariable.CostIcon).show();
                         $(GlobleVariable.ErrorContainer).show();
-                        IsValid = false;
-                    }
+                    IsValid = false;
                 }
+            }
+               
+           
 
 
 
-
-                if (IsValid && CheckExpression) {
+            if (IsValid && CheckExpression) {
                     var baseid = $('#base').attr('data-base');
-                    $.ajax({
+                $.ajax({
                        
                         url: baseid +'/api/CostHeadController/PostCostHead/',
-                        type: "Post",
-                        data: cost,
-                        success: function (response) {
+                    type: "Post",
+                    data: cost,
+                    success: function (response) {
 
-                            console.log(response);
+                        console.log(response);
 
-                            window.close();
+                        window.close();
                            // ListAjaxcall();
 
                             $("#Errorheading").text("Success!!!");
@@ -910,10 +1075,10 @@ $(document).ready(function () {
                             }, 3000);
 
                             ListAjaxcall();
-                        },
+                    },
 
 
-                    });
+                });
 
 
                 }
@@ -964,16 +1129,16 @@ $(document).ready(function () {
 
                             ListAjaxcall();
 
-
+                
 
                         },
                         error: function (xhr, status, error) {
                             console.error(xhr.responseText);
                             console.error(error);
                             console.error(status);
-                        }
+            }
                     });
-                
+
 
             }
         });

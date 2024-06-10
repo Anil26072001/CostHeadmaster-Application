@@ -198,7 +198,43 @@
 //                    alert(" Registration Successfully ");
 //                    window.location.href = '/CostHeadController1/Login';
 
+    // Clear password error message and styling on input
+    $(RegisterIds.Password).on('input', function () {
+        var password = $(this).val();
+        if (!/^.{4,15}$/.test(password)) { // Check if password length is between 4 and 15 characters
+            $(RegisterIds.PasswordError).text('Password must be between 4 and 15 characters long').show();
+            $(this).removeClass('is-valid').addClass('is-invalid');
+            $(RegisterIds.PasswordErrorIcon).show();
+        } else {
+            $(RegisterIds.PasswordError).hide();
+            if (password.trim() !== '') {
+                $(this).removeClass('is-invalid').addClass('is-valid');
+                $(RegisterIds.PasswordErrorIcon).hide();
+            } else {
+                $(this).removeClass('is-valid is-invalid');
+                $(RegisterIds.PasswordErrorIcon).hide();
+            }
+        }
+    });
+    $(RegisterIds.ConfirmPassword).on('input', function () {
+        var confirmPassword1 = $(this).val();
+        var password1 = $(RegisterIds.Password).val();
+        if (confirmPassword1 != password1) {
+            $(RegisterIds.ConfirmPasswordError).text('Password is not matched').show();
+            $(this).removeClass('is-valid').addClass('is-invalid');
+            $(RegisterIds.ConfirmPasswordErrorIcon).show();
+        }
+        else {
+            $(RegisterIds.ConfirmPasswordError).hide();
+            if (confirmPassword1.trim() !== '') {
+                $(this).removeClass('is-invalid').addClass('is-valid');
+                $(RegisterIds.ConfirmPasswordErrorIcon).hide();
+            }
+            else {
+                $(this).removeClass('is-valid is-invalid');
 
+            }
+        }
 
 //                },
 //                error: function (xhr, status, error) {
@@ -211,18 +247,30 @@
 
 //            return isValid;
 
+    //here Form submiting Event
+    $('#registrationForm').submit(function (event) {
 
 //        }
 
-
+       
 //    }
 //});
+        
+            var name = $(RegisterIds.Name).val();
+            var email = $(RegisterIds.Email).val();
+            var password = $(RegisterIds.Password).val();
+            var confirmPassword = $(RegisterIds.ConfirmPassword).val();
+        // Reset error messages
 
 
 
 
+        var Register = {
 
-
+            name: $(RegisterIds.Name).val(),
+            email: $(RegisterIds.Email).val(),
+            password: $(RegisterIds.Password).val(),
+            confirmPassword: $(RegisterIds.ConfirmPassword).val(),
 
 var RegisterIds = {
     Name: "#name",
@@ -237,14 +285,14 @@ var RegisterIds = {
     ConfirmPassword: "#confirmPassword",
     ConfirmPasswordError: "#confirmPasswordError",
     ConfirmPasswordErrorIcon: "#confirmPasswordErrorIcon"
-};
+        };
 
 $(document).ready(function () {
     // Input validation logic here (omitted for brevity)
-
+        
     $('#registrationForm').submit(function (event) {
         event.preventDefault(); // Prevent the default form submission
-
+ 
         // Perform validation
         var isValid = true;
 
@@ -253,6 +301,7 @@ $(document).ready(function () {
         if (!name) {
             $(RegisterIds.NameError).text('Name is required').show();
             $(RegisterIds.NameErrorIcon).show();
+
             isValid = false;
         } else if (!/^[a-zA-Z]+(?:\s[a-zA-Z]+)*$/.test(name)) {
             $(RegisterIds.NameError).text('Name should only contain alphabetic characters').show();
@@ -314,25 +363,38 @@ $(document).ready(function () {
                 password: password,
                 confirmPassword: confirmPassword
             };
-
-            $.ajax({
-                url: 'https://localhost:7125/api/CoostController/Register',
+       
+        $.ajax({
+            url: 'https://localhost:7125/api/CoostController/Register',
                 type: 'POST',
                 data: JSON.stringify(Register), // Ensure the data is properly formatted as JSON
                 contentType: 'application/json', // Set the correct content type
-                success: function (result) {
+            success: function (result) {
                     alert("Registration Successfully");
-                    window.location.href = '/CostHeadController1/Login';
-                },
-                error: function (xhr, status, error) {
-                    console.error(xhr.responseText);
-                    console.error(error);
-                    console.error(status);
-                }
-            });
-        }
-    });
+                window.location.href = '/CostHeadController1/Login';
+
+
+
+            },
+             error: function (xhr, status, error) {
+                console.error(xhr.responseText);
+                console.error(error);
+                console.error(status);
+            }
+
+        });
+
+        return isValid;
+
+
+
+
+
+    }
 });
+});
+
+
 
 
 

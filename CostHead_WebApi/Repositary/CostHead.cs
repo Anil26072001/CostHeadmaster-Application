@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CostHead_WebApi.Repositary
 {
     
+  
     public class CostHead:ICost
     {
         
@@ -22,13 +23,14 @@ namespace CostHead_WebApi.Repositary
         {
             try
             {
-                if (user != null)
-                {
-                    _context.Registers.Add(user);
-                    await _context.SaveChangesAsync();
-                }
-                return;
+            if (user != null)
+            {
+
+                _context.Registers.Add(user);
+                await _context.SaveChangesAsync();
             }
+            return;
+        }
             catch (Exception)
             {
 
@@ -63,21 +65,21 @@ namespace CostHead_WebApi.Repositary
             try
             {
                 var succeed = await _context.Registers.Where(a => a.Email == Email && a.Password == password).FirstOrDefaultAsync();
-                if (succeed != null)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+            if (succeed != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
             }
             catch (Exception)
             {
 
                 throw;
             }
-           
+
 
         }
 
@@ -88,21 +90,21 @@ namespace CostHead_WebApi.Repositary
 
             try
             {
-                Cost obj = new Cost();
-                //obj.CostId = cost.CostId;
+            Cost obj = new Cost();
+            //obj.CostId = cost.CostId;
                 obj.CostHeadName = cost.CostHeadName;
-                obj.Remarks = cost.Remarks;
+            obj.Remarks = cost.Remarks;
                 obj.IsActive = cost.IsActive;
 
                 var res = _context.Costs.Add(cost);
-                int i;
+            int i;
                 if (res != null)
-                {
-                    i = await _context.SaveChangesAsync();
-                    return i;
+            {
+                i = await _context.SaveChangesAsync();
+                return i;
 
-                }
-                return 0;
+            }
+            return 0;
 
             }
             catch (Exception)
@@ -119,17 +121,18 @@ namespace CostHead_WebApi.Repositary
 
             try
             {
-                int i = 0;
-                var deleteid = _context.Costs.Find(id);
+            int i = 0;
 
-                if (deleteid != null)
-                {
+            var deleteid = _context.Costs.Find(id);
+
+            if (deleteid != null)
+            {
                     deleteid.IsDelete = false;
-                    i = await _context.SaveChangesAsync();
+                i = await _context.SaveChangesAsync();
 
-                }
-                return i;
             }
+            return i;
+        }
             catch (Exception)
             {
 
@@ -146,25 +149,25 @@ namespace CostHead_WebApi.Repositary
 
             try
             {
-                var update = _context.Costs.FirstOrDefault(u => u.CostId == id);
-                if (update != null)
-                {
-                    update.CostHeadName = cost.CostHeadName;
-                    update.Remarks = cost.Remarks;
-                    update.IsActive = cost.IsActive;
+            var update = _context.Costs.FirstOrDefault(u => u.CostId == id);
+            if (update != null)
+            {
+                update.CostHeadName = cost.CostHeadName;
+                update.Remarks = cost.Remarks;
+                update.IsActive = cost.IsActive;
 
 
-                    int sucess = await _context.SaveChangesAsync();
-                    return sucess;
-                }
-                return 0;
+                int sucess = await _context.SaveChangesAsync();
+                return sucess;
             }
+            return 0;
+        }
             catch (Exception)
             {
 
                 throw;
             }
-           
+
         }
 
 
