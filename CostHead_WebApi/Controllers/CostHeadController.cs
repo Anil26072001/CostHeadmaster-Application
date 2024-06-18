@@ -68,54 +68,59 @@ namespace CostHead_WebApi.Controllers
 
         [HttpPost, Route("api/CostHeadController/PostCostHead")]
         public async Task<ActionResult<Cost>> CostPost(Cost cosy)
+        
         {
-
-
             bool costExists = _db.Costs.Any(m => m.CostHeadName.ToLower() == cosy.CostHeadName.ToLower());
             if (costExists)
             {
                 return StatusCode(StatusCodes.Status409Conflict);
             }
-            try
-            {
-
-            if (_cost == null)
-            {
-                NotFound();
-            }
-            Cost obj = new Cost();
-
-            obj.CostHeadName = cosy.CostHeadName;
-            obj.Remarks = cosy.Remarks;
-            obj.IsActive = cosy.IsActive;
 
 
-            var results = await _cost.AddCost(obj);
+            _db.Costs.Add(cosy);
+            _db.SaveChanges();
 
             return Ok();
-            }
-            catch (Exception)
-            {
+            //try
+            //{
 
-                throw;
-            }
+            //if (_cost == null)        
+            //{
+            //    NotFound();
+            //}
+            //Cost obj = new Cost();
 
-            
-          
+            //obj.CostHeadName = cosy.CostHeadName;
+            //obj.Remarks = cosy.Remarks;
+            //obj.IsActive = cosy.IsActive;
+
+
+            //var results = await _cost.AddCost(obj);
+
+            //return Ok();
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
+
+
+
         }
         [HttpDelete,Route("api/CostHeadController/Delete/{id}")]
         public async Task<int> Delete(int id)
-        
         {
-            try
-        {
+          try
+          {
+
             int delete = await _cost.Delete(id);
-                if (delete == 0)
+            if (delete == 0)
             {
                 NotFound();
             }
             return 1;          
-            }
+          }
             catch (Exception)
             {
 

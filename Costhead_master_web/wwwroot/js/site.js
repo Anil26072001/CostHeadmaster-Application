@@ -220,24 +220,7 @@ $(document).ready(function () {
                 password: password_val
             };
 
-            //$.ajax({
-
-            //    /* url: baseid +"api/CoostController/Login"*/
-            //    url: 'https://localhost:7125/api/CoostController/Login',
-        
-            //     type: 'Post',
-            //    data: (login),
-
-            //    success: function (result) {
-            //        alert("Login successfully");
-            //        window.location.href = '/CostHeadController1/ListPage';
-               
-                success: function (result) {
-                    alert("Successfully submitted");
-                    window.location.href = '/CostHeadController1/ListPage';
-
-            //    }
-            //});
+           
 
 
             $.ajax({

@@ -104,27 +104,27 @@ body {
     padding: 0;
 }
 
-.form-container {
+/*.form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50vh;
     width: 100%;
-}
+}*/
 
 
 
 
 
 
-.form-wrapper {
+/*.form-wrapper {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
    /* max-width: 400px;
     width: 100%;*/
-}
+/*}
 
     .form-wrapper .banner {
         text-align: center;
@@ -183,17 +183,32 @@ body {
 
             .form-wrapper .btn-block button:hover {
                 background-color: #218838;
-            }
+            }*/
 
 
+
+
+.form-container {
+    visibility: visible;
+    display: block;
+    position: relative;
+    width: 833px;
+}
+
+/*.form-wrapper {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 800px;
+}*/
 .button-container {
     display: flex;
     justify-content: flex-end;
 }
 
-.btn-block {
-    margin-left: 50px; /* Adjust spacing between buttons if needed */
-}
+
 
 .button-container {
     display: grid;
@@ -203,7 +218,10 @@ body {
 }
 
 
+.btn-block{
 
+
+}
 
 
 
@@ -219,7 +237,7 @@ body {
     color: red;
     /*margin-bottom: 20px;
     display: none;  */
-  /*  left :-167px;*/
+    /*  left :-167px;*/
 }
 
 
@@ -255,9 +273,9 @@ body {
 #costicon {
     color: red;
     position: absolute;
-    bottom: 296px;
+    bottom: 276px;
+    left: 721px;
     
-    left: 858px;
     display: none;
 }
 .Iconcolor {
@@ -287,40 +305,12 @@ body {
 
 
 
-
-.btn-block {
-    text-align: right; /* Align buttons to the right */
-    margin-top: 10px; /* Add some space at the top */
-}
-
-    .btn-block button {
-        text-align:right;
-
-        margin: 0 5px; /* Add some space between buttons */
-        /*padding: 10px 20px;*/ /* Optional: Increase padding for better appearance */
-    }
-
-
-        .btn-block button:hover {
-            background-color: darkblue; /* Change background color on hover */
-        }
-
-#close {
-    position: absolute;
-    right: 93px;
-    top: 370px;
-    left:124px;
-
-   /* color:blue;*/
-}
-
 #submit {
     position: absolute;
-    /*bottom: 88px;*/
-    left: 705px;
+    left: 552px;
     bottom: 35px;
+    height: 40px;
     background-color: #30619f;
-    /*color:blue;*/
 }
 
 
@@ -454,14 +444,31 @@ dialog box css*/
 
 
 
-#remarks {
-   /* left: 93px;*/
-    margin-left: -7px;
+
+.item-checkbox {
+    position: relative;
+    margin-top: -316px;
+    left: -121px;
 }
 
 
-#costheadname{
+#remarks {
+    /* left: 93px;*/
+    margin-left: 22px;
+    position: relative;
+    top: -37px;
+    left: -30px;
+    margin: 0px 60px 3px 50px
+}
+#remark {
+    position:relative;
+    top:-75px;
+}
 
+#costheadname {
+    position: relative;
+    margin: 54px 91px 41px 23px;
+    height: 42px;
 }
 
 body {
@@ -471,22 +478,14 @@ body {
     padding: 20px;
 }
 
-.form-container {
+/*.form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50vh;
     width: 100%;
-}
+}*/
 
-.form-wrapper {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 800px;
-}
 
 .banner h1 {
     margin: 0;
@@ -543,12 +542,13 @@ button {
 
 
 .error-container {
-    color: red;
-    height:45px;
-    width:998px;
-    left:1px;
 
-        
+    color: red;
+    position: absolute;
+    top: 14px;
+    height: 45px;
+    width: 798px;
+    left: 1px;
 }
 
 
@@ -671,13 +671,13 @@ k-grid-toolbar {
 }
 
 
-#txtSearch {
-    /*position: absolute;*/
+txtSearch {
+    position: relative;
     width: 291px;
-    margin-left: 598px;
+    margin-left: 265px;
     height: 38px;
     margin-top: -3px;
-    left: 350px;
+    left: 300px;
 }
 
 .toolbar {
@@ -705,8 +705,9 @@ k-grid-toolbar {
     top: 37px;
 }
 #txtSearch {
+    position:relative;
     width: 291px;
-    margin-left: 617px;
+    margin-left: 292px;
     height: 38px;
     margin-top: -3px;
     left: 300px;
@@ -723,7 +724,7 @@ k-grid-toolbar {
 #btnDropdown {
     vertical-align: middle;
     cursor: pointer;
-}
+}   
 
 #btnDropdown {
     position: relative;
@@ -732,16 +733,18 @@ k-grid-toolbar {
 }
 #close {
     color: cadetblue;
-    padding: 10px 20px;
+    padding: 6px 16px;
     border: 2px solid lightblue;
-    margin-left: 669px;
+    margin-left: 625px;
     height: 41px;
-    margin-top: -36px;
-    width: 97px;
+    margin-top: 315px;
+    width: 86px;
     border-radius: 4px;
     background-color: white;
     font-size: 1rem;
 }
+
+
 
 /*.addcustom-button {
     position: relative;
@@ -864,4 +867,41 @@ k-grid-toolbar {
 }
 #addWindow{
     border-radius:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Example CSS to handle the cursor state */
+#editIcon, #gridIcon, #deleteIcon {
+    cursor: pointer;
+}
+
+    #editIcon[style*="pointer-events: none"],
+    #gridIcon[style*="pointer-events: none"],
+    #deleteIcon[style*="pointer-events: none"] {
+        cursor: default;
+    }
+
+
+
+
+#searchh {
+    position: absolute;
+    left: 1220px;
+    top: 8px;
 }

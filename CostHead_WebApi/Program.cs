@@ -21,7 +21,7 @@ builder.Services.AddSwaggerGen();
 
 
 var MyAllowSpecificOrgins = "_myAllowSpecificOrgins";
-builder.Services.AddCors(Options =>
+builder.Services.AddCors(Options => 
 {
     Options.AddPolicy(name: MyAllowSpecificOrgins,
 
@@ -41,7 +41,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+}   
 
 app.UseHttpsRedirection();
 
